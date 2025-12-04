@@ -25,3 +25,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+   - assets/plate1.png
+   - assets/plate2.png
+   - assets/plate3.png
+   - assets/plate4.png
+   - assets/plate5.png
+   - assets/plate6.png
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/Montserrat-Regular.ttf
