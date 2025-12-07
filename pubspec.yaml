@@ -33,6 +33,17 @@ flutter:
    - assets/plate4.png
    - assets/plate5.png
    - assets/plate6.png
+   - assets/plate01.png
+   - assets/plate02.png
+   - assets/plate03.png
+   - assets/plate04.png
+   - assets/plate05.png
+   - assets/plate06.png
+   - assets/plate07.png
+   - assets/plate08.png
+   - assets/plate09.png
+   - assets/plate10.png
+
   fonts:
     - family: Montserrat
       fonts:
