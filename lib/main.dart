@@ -202,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       child: Center(
                         child: Text(
-                          'Checkout',
+                          ' + New',
                           style: TextStyle(
                             fontFamily: 'Montserrat',
                             color: Colors.white,
