@@ -1,19 +1,37 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/book_list_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_library/core/services/injection_container.dart';
+import 'package:my_library/src/features/course/pesentation/bloc/explore/course_bloc.dart';
+import 'package:my_library/src/features/course/pesentation/bloc/favorite_course/favorite_course_bloc.dart';
+import 'package:my_library/src/features/course/pesentation/bloc/feature/feature_course_bloc.dart';
+import 'package:my_library/src/features/course/pesentation/bloc/recommend/recommend_course_bloc.dart';
+import 'package:my_library/src/root_app.dart';
+import 'src/theme/app_color.dart';
 
-void main() {
-  runApp(MyLibrary());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initLocator();
+  runApp(const MyApp());
 }
 
-class MyLibrary extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Library App',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      // home: HomeScreen(),
-      home: BookListScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => locator.get<CourseBloc>()),
+        BlocProvider(create: (_) => locator.get<FeatureCourseBloc>()),
+        BlocProvider(create: (_) => locator.get<RecommendCourseBloc>()),
+        BlocProvider(create: (_) => locator.get<FavoriteCourseBloc>()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Online Course App',
+        theme: ThemeData(primaryColor: AppColor.primary),
+        home: const RootApp(),
+      ),
     );
   }
 }
